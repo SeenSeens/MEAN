@@ -1,0 +1,7 @@
+.amado_product_area--modify {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 calc(95% - 260px);
+  width: calc(95% - 260px);
+  max-width: calc(95% - 260px);
+}/*# sourceMappingURL=shop.component.css.map */

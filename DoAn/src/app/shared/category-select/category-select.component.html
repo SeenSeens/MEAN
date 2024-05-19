@@ -1,0 +1,8 @@
+<div class="form-group mb-3" [formGroup]="formGroup">
+  <label for="category">Category</label>
+  <select class="custom-select tm-select-accounts" id="category" formControlName="category"
+          (change)="onCategorySelected($event)">
+    <option selected>Select category</option>
+    <option *ngFor="let category of categories" [value]="category._id" [selected]="category._id === selectedCategoryId">{{ category.name }}</option>
+  </select>
+</div>

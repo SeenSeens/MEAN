@@ -1,0 +1,32 @@
+- **src**: Thư mục gốc của dự án, chứa toàn bộ mã nguồn của ứng dụng Angular.
+  - **app**: Thư mục chính của ứng dụng, chứa các thành phần chính của ứng dụng như các component, service, module, và các tệp liên quan khác.
+      - **models**: Chứa các định nghĩa dữ liệu (interface hoặc class) được sử dụng trong ứng dụng.
+        - order.model.ts
+        - product.model.ts
+        - user.model.ts
+      - **pages**: Các thành phần chứa các trang hoặc phần của ứng dụng.
+        - cart
+        - checkout
+        - home
+        - product
+        - shop
+      - **services**: Chứa các dịch vụ liên quan đến giao tiếp với backend như ProductService, CartService, UserService, OrderService.
+      - **shared**: Các thành phần được chia sẻ giữa nhiều phần của ứng dụng như header, footer, sidebar, và các tiện ích.
+      - app.component.html
+      - app.component.scss
+      - app.component.spec.ts
+      - app.component.ts
+      - app.module.server.ts
+      - app.module.ts
+      - app-routing.module.ts
+    - **assets**: Thư mục chứa các tài nguyên như hình ảnh, font chữ, tệp CSS, JSON, vv.
+    - docs
+    - *environments*: Chứa các tệp cấu hình cho các môi trường khác nhau như development, staging, production.
+    - favicon.ico
+    - index.html
+    - main.server.ts
+    - main.ts
+    - styles.scss
+ 
+
+# Chi tiết tài liệu

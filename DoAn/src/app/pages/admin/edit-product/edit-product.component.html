@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="/assets/admin/jquery-ui-datepicker/jquery-ui.min.css" type="text/css" />
+<div class="container tm-mt-big tm-mb-big">
+  <div class="row">
+    <div class="col-12 mx-auto">
+      <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="tm-block-title d-inline-block">Edit Product</h2>
+          </div>
+        </div>
+        <form class="row tm-edit-product-row" enctype="multipart/form-data" autocomplete="off" (ngSubmit)="submitForm()" [formGroup]="productForm">
+          <div class="col-md-8">
+            <div class="form-group mb-3">
+              <label for="name">Product Name</label>
+              <input id="name" type="text" class="form-control validate" formControlName="name" required/>
+            </div>
+            <div class="form-group mb-3">
+              <label for="description">Description</label>
+              <editor
+                apiKey="1qa5t0dn0b46dukvifb2b500e7ausw3qelzj0jie038xyejf"
+                id="description"
+                [init]="{
+                  plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+                  toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+                  content_css: false,
+                  body_class: 'form-control validate',
+                  formControlName:'description'
+                }"
+                formControlName="description"
+              ></editor>
+            </div>
+            <app-category-select [formGroup]="productForm" [selectedCategoryId]="selectedCategoryId" (categoryIdSelected)="handleCategoryIdSelected($event)"></app-category-select>
+          </div>
+          <div class="col-md-4 mx-auto mb-4">
+            <div class="tm-product-img-dummy mx-auto">
+              <img *ngIf="previewUrl; else uploadIcon" [src]="previewUrl"  alt="Product image" class="img-fluid d-block mx-auto">
+              <ng-template #uploadIcon>
+              <i class="fas fa-cloud-upload-alt tm-upload-icon" (click)="uploadImage()"></i>
+              </ng-template>
+            </div>
+            <div class="custom-file mt-3 mb-3">
+              <input id="fileInput" type="file" style="display:none;" (change)="onFileSelected($event)"/>
+              <input type="button" class="btn btn-primary btn-block mx-auto" value="CHANGE IMAGE NOW" (click)="uploadImage()"/>
+            </div>
+            <div class="form-group mt-3 mb-3">
+              <label for="price">Price</label>
+              <input id="price" type="text" class="form-control validate" formControlName="price" required/>
+            </div>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-block text-uppercase">Edit Product Now</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/assets/admin/jquery-ui-datepicker/jquery-ui.min.js"></script>

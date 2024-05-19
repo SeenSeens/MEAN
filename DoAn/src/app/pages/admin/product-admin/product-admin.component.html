@@ -1,0 +1,65 @@
+<div class="container mt-5">
+  <div class="row tm-content-row">
+    <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 tm-block-col">
+      <div class="tm-bg-primary-dark tm-block tm-block-products">
+        <div class="tm-product-table-container">
+          <table class="table table-hover tm-table-small tm-product-table">
+            <thead>
+              <tr>
+                <th scope="col">&nbsp;</th>
+                <th scope="col">PRODUCT NAME</th>
+                <th scope="col">PRICE</th>
+                <th scope="col">&nbsp;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of products; let i = index">
+                <th scope="row">{{ i + 1 }}</th>
+                <td class="tm-product-name">{{ product.name}}</td>
+                <td>{{ product.price }}</td>
+                <td>
+                  <a class="tm-product-delete-link" [routerLink]="['../edit-product/', product._id]">
+                    <i class="fas fa-pen"></i>
+                  </a>
+                  <button class="tm-product-delete-link" (click)="deleteProduct(product._id || '')">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- table container -->
+        <a [routerLink]="['/admin/add-product']" class="btn btn-primary btn-block text-uppercase mb-3">Add new product</a>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 tm-block-col">
+      <div class="tm-bg-primary-dark tm-block tm-block-product-categories">
+        <h2 class="tm-block-title">Product Categories</h2>
+        <div class="tm-product-table-container">
+          <table class="table tm-table-small tm-product-table">
+            <tbody>
+              <tr *ngFor="let category of categories">
+                <td class="tm-product-name">{{ category.name }}</td>
+                <td class="text-center">
+                  <a class="tm-product-delete-link" [routerLink]="['../edit-category/', category._id]">
+                    <i class="fas fa-pen"></i>
+                  </a>
+                  <a class="tm-product-delete-link" (click)="deleteCategory(category._id || '')">
+                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- table container -->
+        <button class="btn btn-primary btn-block text-uppercase mb-3" routerLink="/admin/add-category">
+          Add new category
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/assets/admin/js/jquery-3.3.1.min.js"></script>
+<script src="/assets/admin/js/bootstrap.min.js"></script>
