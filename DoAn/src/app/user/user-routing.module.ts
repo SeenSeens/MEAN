@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AppLayoutComponent} from "../layout/app-layout/app-layout.component";
+import {ShopComponent} from "../pages/shop/shop.component";
+import {ProductComponent} from "../pages/product/product.component";
+import {ProductDetailsComponent} from "../pages/product-details/product-details.component";
+import {CartComponent} from "../pages/cart/cart.component";
+import {CheckoutComponent} from "../pages/checkout/checkout.component";
 const routes: Routes = [
-  {
-    path: '',
-    component: AppLayoutComponent,
-    children: [
-    ]
-  }
+  { path: '', redirectTo: 'shop', pathMatch: 'full' },
+  { path: 'shop', component: ShopComponent },
+  { path: 'product', component: ProductComponent },
+  { path: 'product/:id', component: ProductDetailsComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'checkout', component: CheckoutComponent },
 ];
 
 @NgModule({

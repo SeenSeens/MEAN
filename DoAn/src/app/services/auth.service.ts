@@ -3,20 +3,27 @@ import {HttpClient} from "@angular/common/http";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {Observable} from "rxjs";
 import { User, Credentials } from "../models/user.model"
+import {environment} from "../../environments/environment";
+import {CONSTANT} from "../constant/constant";
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  // private apiEndPoint: string ='';
   private authUrl = 'http://localhost:3000/api/user';
   constructor(
     private http: HttpClient,
     private jwtHelper: JwtHelperService
-  ) { }
+  ) {
+    // this.apiEndPoint = environment.apiEndPoint;
+  }
 
   register(user: User): Observable<any> {
+    // return this.http.post(`${ this.apiEndPoint + CONSTANT.ENDPOINTS.USER.REGISTER }`, user);
     return this.http.post(`${this.authUrl}/register`, user);
   }
   login(credentials: Credentials): Observable<any> {
+    // return this.http.post(`${ this.apiEndPoint + CONSTANT.ENDPOINTS.USER.LOGIN }`, credentials);
     return this.http.post(`${this.authUrl}/login`, credentials);
   }
   isAuthenticated() {

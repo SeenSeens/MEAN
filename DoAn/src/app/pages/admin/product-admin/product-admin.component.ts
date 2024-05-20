@@ -27,7 +27,6 @@ export class ProductAdminComponent {
   private fetchCategory(): void {
     this.categories$ = this.categoryService.catgories$;
     this.categories = this.categoryService.getCategory();
-    console.log(this.categories$);
   }
 
   private fetchProducts(): void {

@@ -9,7 +9,7 @@ import * as $ from 'jquery';
   selector: 'app-shop',
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.scss',
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class ShopComponent implements OnInit{
   categories: Category[] = [];
@@ -55,6 +55,7 @@ export class ShopComponent implements OnInit{
   addToCart(productId: string) {
     const quantity = 1; // Bạn có thể lấy giá trị này từ người dùng
     this.cartService.addToCart(productId, quantity);
+    alert('Thêm vào giỏ hàng thành công')
   }
 
   getProductImageUrl(thumbnail: string): string {

@@ -5,6 +5,11 @@ export const CONSTANT = {
   ENDPOINTS: {
     CATEGORY: 'category',
     PRODUCT: 'product',
-    USER: 'user'
+    USER: {
+      BASE: 'user',
+      REGISTER: 'register',
+      LOGIN: 'login'
+    },
+    ORDER: 'order'
   }
 }

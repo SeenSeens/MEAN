@@ -16,7 +16,7 @@
               <tr *ngFor="let product of products; let i = index">
                 <th scope="row">{{ i + 1 }}</th>
                 <td class="tm-product-name">{{ product.name}}</td>
-                <td>{{ product.price }}</td>
+                <td>{{ product.price | vnd  }}</td>
                 <td>
                   <a class="tm-product-delete-link" [routerLink]="['../edit-product/', product._id]">
                     <i class="fas fa-pen"></i>
