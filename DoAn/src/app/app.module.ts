@@ -39,8 +39,8 @@ import {AppLayoutComponent} from "./layout/app-layout/app-layout.component";
     FormsModule,
   ],
   providers: [
-    // provideClientHydration(),
-    // provideHttpClient(withFetch()),
+    provideClientHydration(),
+    provideHttpClient(withFetch()),
     // AuthService,
     // { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     // JwtHelperService

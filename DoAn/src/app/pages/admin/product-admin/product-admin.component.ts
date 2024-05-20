@@ -32,7 +32,7 @@ export class ProductAdminComponent {
 
   private fetchProducts(): void {
     this.products$ = this.productService.product$;
-    this.products = this.productService.getProduct();
+    this.products = this.productService.getProductAll();
 
   }
 

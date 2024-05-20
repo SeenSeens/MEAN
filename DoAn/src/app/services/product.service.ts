@@ -43,16 +43,17 @@ export class ProductService {
        return this.product$.set(product);
       });
   }
+
   private refreshProductsAll() {
     this.http.get<Product[]>(`${ this.apiEndPoint + CONSTANT.ENDPOINTS.PRODUCT }`)
       .subscribe(product => {
         this.product$.set(product);
       });
   }
+
   // Lấy tất cả danh sách
-  getProduct() {
-    // this.refreshProductsAll();
-    this.refreshProducts();
+  getProductAll() {
+    this.refreshProductsAll();
     return this.product$();
   }
 

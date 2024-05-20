@@ -14,8 +14,8 @@ import * as $ from 'jquery';
 export class ShopComponent implements OnInit{
   categories: Category[] = [];
   products: any[] = [];
-  currentPage: number = 1;
-  totalPages: number = 0;
+  /*currentPage: number = 1;
+  totalPages: number = 0;*/
 
   categories$ = {} as WritableSignal<Category[]>;
   products$ = {} as WritableSignal<Product[]>;
@@ -28,7 +28,7 @@ export class ShopComponent implements OnInit{
 
   ngOnInit(): void {
     this.fetchCategory();
-    this.fetchProducts(this.currentPage);
+    // this.fetchProducts(this.currentPage);
     this.fetchProductAll();
   }
   private fetchCategory(): void {
@@ -39,10 +39,10 @@ export class ShopComponent implements OnInit{
   // Lấy tất cả
   private fetchProductAll(): void {
     this.products$ = this.productService.product$;
-    this.products = this.productService.getProduct();
+    this.products = this.productService.getProductAll();
   }
 
-  fetchProducts(page: number): void {
+  /*fetchProducts(page: number): void {
     this.products$ = this.productService.product$;
     this.productService.getProducts(page, 10) // Giả sử mỗi trang hiển thị 10 sản phẩm
       .subscribe(data => {
@@ -50,7 +50,7 @@ export class ShopComponent implements OnInit{
         this.currentPage = data.currentPage;
         this.totalPages = data.totalPages;
       });
-  }
+  }*/
 
   addToCart(productId: string) {
     const quantity = 1; // Bạn có thể lấy giá trị này từ người dùng
