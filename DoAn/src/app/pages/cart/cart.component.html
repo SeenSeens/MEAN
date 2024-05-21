@@ -26,6 +26,7 @@
           <td>{{ item.name }}</td>
           <td>{{ item.price | vnd }}</td>
           <td>
+            {{ item.quantity }}
             <input type="number" class="form-control" style="width: 70px;" [value]="item.quantity" (input)="updateQuantity($event, item)">
           </td>
           <td>{{ calculateSubtotal(item) | vnd }}</td>
